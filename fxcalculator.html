@@ -8,93 +8,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
     <title>FX-Calc</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
-    
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0 .5rem;
-            background-color:#eee;
-            color: #292b2c;}
-
-        @media (max-width: 500px) {
-            .wrapper {
-                margin: 0 auto;}
-            body {
-                margin: 1rem;}}
-
-        input {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 2px 2px;
-            font-size: 13px;
-            border: 2px solid #5bc0de;
-            border-radius: 5px;
-            width: 6.5rem;
-            background: #f7f7f7;}
-
-        input:focus {
-            outline: none;}
-
-        .wrapper {
-            width: 16rem;}
-
-        .Heading {
-            font-size: 22px;
-            text-align: center;
-            font-weight: 500;
-            margin: .2rem auto .3rem;}
-
-        .headings {
-            font-size: 18px;
-            cursor: default;
-            width: 8rem;}
-
-        .Pairs {
-            font-size: 14px; 
-            display: flex;
-            margin-bottom: 0.6rem;}
-            
-        .pair a:hover {
-            color: #d9534f;
-            cursor: pointer;}
-
-        .R_Amount {
-            display: flex;
-            padding: 1px;}
-
-        .SL_Pips {
-            display: flex; 
-            padding: 1px;}
-
-        .Pairhead {
-            padding: 1px 0 0 1px;}
-
-        .pair_list {
-            padding-top: 10px; }
-
-        .stats_hr {
-            width: 16rem;
-            margin: 1rem auto .1rem 5px;
-            border: 1px solid #5bc0de;}
-
-        .stats {
-            font-size: 18px;
-            cursor: default;
-            margin-top: .7rem;
-            display: flex;
-            padding-left: 5px;}
-
-        /* .stats_1stCol {}
-        .stats_2ndCol {} */
-
-        .stat_head {
-            padding: 1px 0;
-            width: 8rem;}
-
-        .stat_answ {
-            padding: 1px 0 1px 2px;}
-    </style>
 
 <div class="wrapper">
 
@@ -182,96 +98,10 @@
     </div>
 
 </div>
-
-    <script>
-        const list = [];
-
-        function funcEU() {
-            list.push(0);
-            var lastListVal = list.slice(-2)[0] 
-            pipvalue = document.getElementById("EUR_USD").value;
-            document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-            document.getElementsByClassName("EU")[0].style.color = "#d9534f";}
-
-        function funcGU() {
-            list.push(1);
-            var lastListVal = list.slice(-2)[0] 
-            pipvalue = document.getElementById("GBP_USD").value;
-            document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-            document.getElementsByClassName("GU")[0].style.color = "#d9534f";}
-
-        function funcGJ() {
-            list.push(2);
-            var lastListVal = list.slice(-2)[0] 
-            pipvalue = document.getElementById("GBP_JPY").value; 
-            document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-            document.getElementsByClassName("GJ")[0].style.color = "#d9534f";}
-
-        function funcXAU() {
-            list.push(3);
-            var lastListVal = list.slice(-2)[0] 
-            pipvalue = document.getElementById("XAU_USD").value; 
-            document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-            document.getElementsByClassName("XAU")[0].style.color = "#d9534f";}
-
-        function funcNU() {
-            list.push(4);
-            var lastListVal = list.slice(-2)[0] 
-            pipvalue = document.getElementById("NZD_USD").value; 
-            document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-            document.getElementsByClassName("NU")[0].style.color = "#d9534f";}
-
-        function funcEN() {
-            list.push(5);
-            var lastListVal = list.slice(-2)[0] 
-            pipvalue = document.getElementById("EUR_NZD").value; 
-            document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-            document.getElementsByClassName("EN")[0].style.color = "#d9534f";}
-
-        function funcGC() {
-            list.push(6);
-            var lastListVal = list.slice(-2)[0] 
-            pipvalue = document.getElementById("GBP_CAD").value; 
-            document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-            document.getElementsByClassName("GC")[0].style.color = "#d9534f";}
-
-        function funcGN() {
-            list.push(7);
-            var lastListVal = list.slice(-2)[0] 
-            pipvalue = document.getElementById("GBP_NZD").value; 
-            document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-            document.getElementsByClassName("GN")[0].style.color = "#d9534f";}
-
-        function funcUZ() {
-            list.push(8);
-            var lastListVal = list.slice(-2)[0] 
-            pipvalue = document.getElementById("USD_ZAR").value; 
-            document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-            document.getElementsByClassName("UZ")[0].style.color = "#d9534f";}
-
-        function Calculation() {
-            var y = document.getElementById("SLpips").value;
-            var x = document.getElementById("riskamount").value;
-            var z = y*pipvalue/x;
-            var answer = Math.pow(z, -1).toFixed(3);
-            if (answer.slice(-1) == 0) {
-                if (answer.slice(-2) == 0) {
-                    if (answer.slice(-3) == 0) {
-                        var answer = Math.pow(z, -1).toFixed(0);
-                    } else { var answer = Math.pow(z, -1).toFixed(1); }
-                } else { var answer = Math.pow(z, -1).toFixed(2); }
-            } else { var answer = Math.pow(z, -1).toFixed(3); }
-            if (answer>0.5 && Number.isInteger(answer*100) == false) {
-                var answer = Math.pow(z, -1).toFixed(2);}
-            var commition = (answer*document.getElementById("commitionValue").value).toFixed(2);
-            var risk = (Number(x) + Number(commition)).toFixed(2);
-            document.getElementById("com").innerHTML = "$ " + commition;
-            document.getElementById("risk").innerHTML = "$ " + risk;
-            document.getElementById("size").innerHTML = answer;}
-    </script>
     
 <!-- Pips at risk * pip value(per lot) * lots traded = amount at risk
 Pips at risk * pip value(per lot) / amount at risk = 1 / lots traded -->
 
+<script src="index.js"></script>
 </body>
 </html>
