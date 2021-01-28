@@ -12,6 +12,12 @@
 </head>
 <body>
 
+<div id="button_wrap">
+    <div class="center" id="center" onclick="centercontent()">Center</div>
+    <div class="center" id="corner" onclick="cornercontent()" style="display: none;">Corner</div>
+</div>
+
+<div id="content">
 <div class="wrapper">
 
     <div class="Heading">Forex Calculator</div>
@@ -69,6 +75,11 @@
                     <input type="number" id="GBP_NZD" value="6.45830" style="display: none;"> GBP_NZD
                 </a>
             </div>
+            <div class="pair UJ">
+                <a onclick="funcUJ(), Calculation()">
+                    <input type="number" id="USD_JPY" value="9.24351" style="display: none;"> USD_JPY
+                </a>
+            </div>
             <div class="pair UZ">
                 <a onclick="funcUZ(), Calculation()">
                     <input type="number" id="USD_ZAR" value="0.67272" style="display: none;"> USD_ZAR
@@ -98,7 +109,10 @@
     </div>
 
 </div>
-    
+</div>
+
+<!-- <div class="wrapper" style="position: relative;margin: 190px auto;padding: 9px;border: 2px solid #5bc0de;border-radius: 5px;"> -->
+
 <!-- Pips at risk * pip value(per lot) * lots traded = amount at risk
 Pips at risk * pip value(per lot) / amount at risk = 1 / lots traded -->
 

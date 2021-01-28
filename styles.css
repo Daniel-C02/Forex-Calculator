@@ -20,7 +20,8 @@ input {
     background: #f7f7f7;}
 
 input:focus {
-    outline: none;}
+    outline: none;
+    background: #fff;}
 
 .wrapper {
     width: 16rem;}
@@ -29,7 +30,8 @@ input:focus {
     font-size: 22px;
     text-align: center;
     font-weight: 500;
-    margin: .2rem auto .3rem;}
+    margin: .2rem auto .3rem;
+    cursor: default;}
 
 .headings {
     font-size: 18px;
@@ -80,3 +82,24 @@ input:focus {
 
 .stat_answ {
     padding: 1px 0 1px 2px;}
+
+    
+/******** center button ***********/
+#button_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0;}
+
+.center {
+    font-weight: 500;
+    font-size: 18px;
+    border-bottom: 2px solid #292b2c;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 16px;}
+
+.center:hover {
+    border-bottom: 2px solid #d9534f;
+    cursor: pointer;}

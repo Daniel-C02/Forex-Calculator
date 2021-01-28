@@ -56,8 +56,15 @@ function funcGN() {
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
     document.getElementsByClassName("GN")[0].style.color = "#d9534f";}
 
-function funcUZ() {
+function funcUJ() {
     list.push(8);
+    var lastListVal = list.slice(-2)[0] 
+    pipvalue = document.getElementById("USD_JPY").value; 
+    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    document.getElementsByClassName("UJ")[0].style.color = "#d9534f";}
+
+function funcUZ() {
+    list.push(9);
     var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("USD_ZAR").value; 
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
@@ -82,3 +89,16 @@ function Calculation() {
     document.getElementById("com").innerHTML = "$ " + commition;
     document.getElementById("risk").innerHTML = "$ " + risk;
     document.getElementById("size").innerHTML = answer;}
+
+function centercontent() {
+    document.getElementById("content").setAttribute(
+        "style", "display: flex; justify-content: center; align-items: center;");
+    document.getElementById("button_wrap").style.height = "160px";
+    document.getElementById("corner").style.display = "block";
+    document.getElementById("center").style.display = "none";}
+
+function cornercontent() {
+    document.getElementById("content").style.display = "block";
+    document.getElementById("button_wrap").style.height = "0";
+    document.getElementById("center").style.display = "block";
+    document.getElementById("corner").style.display = "none";}
