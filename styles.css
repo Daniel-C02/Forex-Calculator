@@ -16,7 +16,7 @@ input {
     font-size: 13px;
     border: 2px solid #5bc0de;
     border-radius: 5px;
-    width: 6.5rem;
+    width: 5.3rem;
     background: #f7f7f7;}
 
 input:focus {
@@ -34,6 +34,7 @@ input:focus {
     cursor: default;}
 
 .headings {
+    position: relative;
     font-size: 18px;
     cursor: default;
     width: 8rem;}
@@ -91,6 +92,9 @@ input:focus {
     align-items: center;
     height: 0;}
 
+@media (max-width: 650px) {
+    #button_wrap {display: none;}}
+
 .center {
     font-weight: 500;
     font-size: 18px;
@@ -103,3 +107,41 @@ input:focus {
 .center:hover {
     border-bottom: 2px solid #d9534f;
     cursor: pointer;}
+
+/*******************  Plus Minus buttons  *******************/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;}
+
+button:hover {
+    color: #d9534f;}
+
+button:focus {
+    outline: -webkit-focus-ring-color none;}
+
+.quantity_btn_m {
+    margin: auto 0 auto .17em;
+    font-size: 22px;
+    padding: 0 3px 4px 2px;
+    transform: scale(1.34,1);
+    line-height: 18.5px;
+    border: none;
+    cursor: pointer;}
+    
+.quantity_btn_p {
+    font-size: 22px;
+    padding: 0 3.5px;
+    border: none;
+    cursor: pointer;}
+
+.zero_btn {
+    font-size: 19px;
+    padding: 0 3px;
+    position: absolute;
+    right: 0;
+    transform: translate(0%, 10%);
+    border: none;
+    cursor: pointer;
+}

@@ -23,13 +23,22 @@
     <div class="Heading">Forex Calculator</div>
 
     <div class="R_Amount">
-        <div class="headings">Risk $</div>
-        <input type="number" id="riskamount" value="" min="0" >
+        <div class="headings">
+            Risk $
+            <button class="zero_btn" onclick="zero()"> 0 </button>
+        </div>
+        
+        <input name="test" type="number" id="riskamount" class="num_1" value="" min="0" >
+        <button class="arrow_minus_1 quantity_btn_m"> - </button>
+        <button class="arrow_plus_1 quantity_btn_p"> + </button>
+        
     </div>
     
     <div class="SL_Pips">
         <div class="headings">SL Pips</div>
-        <input type="number" id="SLpips" value="" min="0">
+        <input type="number" id="SLpips" class="num_2" value="" min="0">
+        <button class="arrow_minus_2 quantity_btn_m"> - </button>
+        <button class="arrow_plus_2 quantity_btn_p"> + </button>
     </div>
     
     <div class="Pairs">
@@ -90,7 +99,9 @@
 
     <div class="SL_Pips">
         <div class="headings">Com $<span style="font-size: 14px;">/Lot</span></div>
-        <input type="number" id="commitionValue" value="7" min="0">
+        <input type="number" id="commitionValue" class="num_3" value="7" min="0">
+        <button class="arrow_minus_3 quantity_btn_m"> - </button>
+        <button class="arrow_plus_3 quantity_btn_p"> + </button>
     </div>
 
     <hr class="stats_hr">
@@ -116,6 +127,7 @@
 <!-- Pips at risk * pip value(per lot) * lots traded = amount at risk
 Pips at risk * pip value(per lot) / amount at risk = 1 / lots traded -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="index.js"></script>
 </body>
 </html>

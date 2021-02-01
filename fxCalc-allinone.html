@@ -12,103 +12,182 @@
 <body>
 
 <style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0 .5rem;
-        background-color:#eee;
-        color: #292b2c;}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 .5rem;
+    background-color:#eee;
+    color: #292b2c;}
 
-    @media (max-width: 500px) {
-        .wrapper {
-            margin: 0 auto;}
-        body {
-            margin: 1rem;}}
-
-    input {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        padding: 2px 2px;
-        font-size: 13px;
-        border: 2px solid #5bc0de;
-        border-radius: 5px;
-        width: 6.5rem;
-        background: #f7f7f7;}
-
-    input:focus {
-        outline: none;}
-
+@media (max-width: 500px) {
     .wrapper {
-        width: 16rem;}
+        margin: 0 auto;}
+    body {
+        margin: 1rem;}}
 
-    .Heading {
-        font-size: 22px;
-        text-align: center;
-        font-weight: 500;
-        margin: .2rem auto .3rem;}
+input {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2px 2px;
+    font-size: 13px;
+    border: 2px solid #5bc0de;
+    border-radius: 5px;
+    width: 5.3rem;
+    background: #f7f7f7;}
 
-    .headings {
-        font-size: 18px;
-        cursor: default;
-        width: 8rem;}
+input:focus {
+    outline: none;
+    background: #fff;}
 
-    .Pairs {
-        font-size: 14px; 
-        display: flex;
-        margin-bottom: 0.6rem;}
-        
-    .pair a:hover {
-        color: #d9534f;
-        cursor: pointer;}
+.wrapper {
+    width: 16rem;}
 
-    .R_Amount {
-        display: flex;
-        padding: 1px;}
+.Heading {
+    font-size: 22px;
+    text-align: center;
+    font-weight: 500;
+    margin: .2rem auto .3rem;
+    cursor: default;}
 
-    .SL_Pips {
-        display: flex; 
-        padding: 1px;}
+.headings {
+    position: relative;
+    font-size: 18px;
+    cursor: default;
+    width: 8rem;}
 
-    .Pairhead {
-        padding: 1px 0 0 1px;}
+.Pairs {
+    font-size: 14px; 
+    display: flex;
+    margin-bottom: 0.6rem;}
+    
+.pair a:hover {
+    color: #d9534f;
+    cursor: pointer;}
 
-    .pair_list {
-        padding-top: 10px; }
+.R_Amount {
+    display: flex;
+    padding: 1px;}
 
-    .stats_hr {
-        width: 16rem;
-        margin: 1rem auto .1rem 5px;
-        border: 1px solid #5bc0de;}
+.SL_Pips {
+    display: flex; 
+    padding: 1px;}
 
-    .stats {
-        font-size: 18px;
-        cursor: default;
-        margin-top: .7rem;
-        display: flex;
-        padding-left: 5px;}
+.Pairhead {
+    padding: 1px 0 0 1px;}
 
-    /* .stats_1stCol {}
-    .stats_2ndCol {} */
+.pair_list {
+    padding-top: 10px; }
 
-    .stat_head {
-        padding: 1px 0;
-        width: 8rem;}
+.stats_hr {
+    width: 16rem;
+    margin: 1rem auto .1rem 5px;
+    border: 1px solid #5bc0de;}
 
-    .stat_answ {
-        padding: 1px 0 1px 2px;}
-        
+.stats {
+    font-size: 18px;
+    cursor: default;
+    margin-top: .7rem;
+    display: flex;
+    padding-left: 5px;}
+
+/* .stats_1stCol {}
+.stats_2ndCol {} */
+
+.stat_head {
+    padding: 1px 0;
+    width: 8rem;}
+
+.stat_answ {
+    padding: 1px 0 1px 2px;}
+
+    
+/******** center button ***********/
+#button_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0;}
+
+@media (max-width: 650px) {
+    #button_wrap {display: none;}}
+
+.center {
+    font-weight: 500;
+    font-size: 18px;
+    border-bottom: 2px solid #292b2c;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 16px;}
+
+.center:hover {
+    border-bottom: 2px solid #d9534f;
+    cursor: pointer;}
+
+/*******************  Plus Minus buttons  *******************/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;}
+
+button:hover {
+    color: #d9534f;}
+
+button:focus {
+    outline: -webkit-focus-ring-color none;}
+
+.quantity_btn_m {
+    margin: auto 0 auto .17em;
+    font-size: 22px;
+    padding: 0 3px 4px 2px;
+    transform: scale(1.34,1);
+    line-height: 18.5px;
+    border: none;
+    cursor: pointer;}
+    
+.quantity_btn_p {
+    font-size: 22px;
+    padding: 0 3.5px;
+    border: none;
+    cursor: pointer;}
+
+.zero_btn {
+    font-size: 19px;
+    padding: 0 3px;
+    position: absolute;
+    right: 0;
+    transform: translate(0%, 10%);
+    border: none;
+    cursor: pointer;
+}
 </style>
 
+<div id="button_wrap">
+    <div class="center" id="center" onclick="centercontent()">Center</div>
+    <div class="center" id="corner" onclick="cornercontent()" style="display: none;">Corner</div>
+</div>
+
+<div id="content">
 <div class="wrapper">
 
     <div class="Heading">Forex Calculator</div>
 
     <div class="R_Amount">
-        <div class="headings">Risk $</div>
-        <input type="number" id="riskamount" value="" min="0" >
+        <div class="headings">
+            Risk $
+            <button class="zero_btn" onclick="zero()"> 0 </button>
+        </div>
+        
+        <input name="test" type="number" id="riskamount" class="num_1" value="" min="0" >
+        <button class="arrow_minus_1 quantity_btn_m"> - </button>
+        <button class="arrow_plus_1 quantity_btn_p"> + </button>
+        
     </div>
     
     <div class="SL_Pips">
         <div class="headings">SL Pips</div>
-        <input type="number" id="SLpips" value="" min="0">
+        <input type="number" id="SLpips" class="num_2" value="" min="0">
+        <button class="arrow_minus_2 quantity_btn_m"> - </button>
+        <button class="arrow_plus_2 quantity_btn_p"> + </button>
     </div>
     
     <div class="Pairs">
@@ -154,6 +233,11 @@
                     <input type="number" id="GBP_NZD" value="6.45830" style="display: none;"> GBP_NZD
                 </a>
             </div>
+            <div class="pair UJ">
+                <a onclick="funcUJ(), Calculation()">
+                    <input type="number" id="USD_JPY" value="9.24351" style="display: none;"> USD_JPY
+                </a>
+            </div>
             <div class="pair UZ">
                 <a onclick="funcUZ(), Calculation()">
                     <input type="number" id="USD_ZAR" value="0.67272" style="display: none;"> USD_ZAR
@@ -164,7 +248,9 @@
 
     <div class="SL_Pips">
         <div class="headings">Com $<span style="font-size: 14px;">/Lot</span></div>
-        <input type="number" id="commitionValue" value="7" min="0">
+        <input type="number" id="commitionValue" class="num_3" value="7" min="0">
+        <button class="arrow_minus_3 quantity_btn_m"> - </button>
+        <button class="arrow_plus_3 quantity_btn_p"> + </button>
     </div>
 
     <hr class="stats_hr">
@@ -183,72 +269,81 @@
     </div>
 
 </div>
+</div>
     
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    const list = [];
+const list = [];
 
 function funcEU() {
     list.push(0);
     var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("EUR_USD").value;
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-    document.getElementsByClassName("EU")[0].style.color = "#d9534f";}
+    document.getElementsByClassName("EU")[0].style.color = "#d9534f";};
 
 function funcGU() {
     list.push(1);
     var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("GBP_USD").value;
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-    document.getElementsByClassName("GU")[0].style.color = "#d9534f";}
+    document.getElementsByClassName("GU")[0].style.color = "#d9534f";};
 
 function funcGJ() {
     list.push(2);
     var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("GBP_JPY").value; 
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-    document.getElementsByClassName("GJ")[0].style.color = "#d9534f";}
+    document.getElementsByClassName("GJ")[0].style.color = "#d9534f";};
 
 function funcXAU() {
     list.push(3);
     var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("XAU_USD").value; 
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-    document.getElementsByClassName("XAU")[0].style.color = "#d9534f";}
+    document.getElementsByClassName("XAU")[0].style.color = "#d9534f";};
 
 function funcNU() {
     list.push(4);
     var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("NZD_USD").value; 
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-    document.getElementsByClassName("NU")[0].style.color = "#d9534f";}
+    document.getElementsByClassName("NU")[0].style.color = "#d9534f";};
 
 function funcEN() {
     list.push(5);
     var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("EUR_NZD").value; 
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-    document.getElementsByClassName("EN")[0].style.color = "#d9534f";}
+    document.getElementsByClassName("EN")[0].style.color = "#d9534f";};
 
 function funcGC() {
     list.push(6);
     var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("GBP_CAD").value; 
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-    document.getElementsByClassName("GC")[0].style.color = "#d9534f";}
+    document.getElementsByClassName("GC")[0].style.color = "#d9534f";};
 
 function funcGN() {
     list.push(7);
     var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("GBP_NZD").value; 
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-    document.getElementsByClassName("GN")[0].style.color = "#d9534f";}
+    document.getElementsByClassName("GN")[0].style.color = "#d9534f";};
+
+function funcUJ() {
+    list.push(8);
+    var lastListVal = list.slice(-2)[0] 
+    pipvalue = document.getElementById("USD_JPY").value; 
+    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    document.getElementsByClassName("UJ")[0].style.color = "#d9534f";};
 
 function funcUZ() {
-    list.push(8);
+    list.push(9);
     var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("USD_ZAR").value; 
     document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
-    document.getElementsByClassName("UZ")[0].style.color = "#d9534f";}
+    document.getElementsByClassName("UZ")[0].style.color = "#d9534f";};
 
 function Calculation() {
     var y = document.getElementById("SLpips").value;
@@ -268,7 +363,75 @@ function Calculation() {
     var risk = (Number(x) + Number(commition)).toFixed(2);
     document.getElementById("com").innerHTML = "$ " + commition;
     document.getElementById("risk").innerHTML = "$ " + risk;
-    document.getElementById("size").innerHTML = answer;}
+    document.getElementById("size").innerHTML = answer;};
+
+function centercontent() {
+    document.getElementById("content").setAttribute(
+        "style", "display: flex; justify-content: center; align-items: center;");
+    document.getElementById("button_wrap").style.height = "160px";
+    document.getElementById("corner").style.display = "block";
+    document.getElementById("center").style.display = "none";};
+
+function cornercontent() {
+    document.getElementById("content").style.display = "block";
+    document.getElementById("button_wrap").style.height = "0";
+    document.getElementById("center").style.display = "block";
+    document.getElementById("corner").style.display = "none";};
+
+$(function() {
+    var skipNum = 1;
+    (function riskDollar(){
+        $(".arrow_minus_1").click(risky);
+        $(".arrow_plus_1").click(risky);
+        function risky() {
+            var riskyy = document.getElementById("riskamount").value;
+            if (riskyy < 100) {skipNum = 1;
+            } else if (riskyy < 999) {skipNum = 10;
+            } else if (riskyy < 9999) {skipNum = 100;
+            } else if (riskyy < 99999) {skipNum = 1000;
+            } else if (riskyy < 999999) {skipNum = 10000;
+            } else if (riskyy < 9999999) {skipNum = 100000;
+            } else if (riskyy < 99999999) {skipNum = 1000000;
+            } else {skipNum = 1;
+            }};})();
+
+    (function Products1() {
+        var $ArrowMinus = $(".arrow_minus_1");
+        var $ArrowPlus = $(".arrow_plus_1");
+        var $Num = $(".num_1");
+        $ArrowMinus.click(Minus);
+        $ArrowPlus.click(Plus);
+        function Minus() {
+            if ($Num.val() > skipNum) {$Num.val(+$Num.val() - skipNum);}}
+        function Plus() {$Num.val(+$Num.val() + skipNum);}})();
+
+    (function Products2() {
+        var $ArrowMinus = $(".arrow_minus_2");
+        var $ArrowPlus = $(".arrow_plus_2");
+        var $Num = $(".num_2");
+        $ArrowMinus.click(Minus);
+        $ArrowPlus.click(Plus);
+        function Minus() {
+            if ($Num.val() > 1) {$Num.val(+$Num.val() - 1);}}
+        function Plus() {$Num.val(+$Num.val() + 1);}})();
+
+    (function Products3() {
+        var $ArrowMinus = $(".arrow_minus_3");
+        var $ArrowPlus = $(".arrow_plus_3");
+        var $Num = $(".num_3");
+        $ArrowMinus.click(Minus);
+        $ArrowPlus.click(Plus);
+        function Minus() {
+            if ($Num.val() > 1) {$Num.val(+$Num.val() - 1);}}
+        function Plus() {$Num.val(+$Num.val() + 1);}})();
+});
+
+function zero() {
+    var amt = (document.getElementById("riskamount").value).trim();
+    if (amt) {
+        var x = Number((amt).toString() + 0);
+        document.getElementById("riskamount").value = x;
+    } else {document.getElementById("riskamount").value = 1;}};
 </script>
 
 <!-- Pips at risk * pip value(per lot) * lots traded = amount at risk
