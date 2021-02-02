@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
-    <title>FX-Calc</title>
+    <title>FX Calc</title>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
@@ -25,20 +25,20 @@
     <div class="R_Amount">
         <div class="headings">
             Risk $
-            <button class="zero_btn" onclick="zero()"> 0 </button>
+            <div class="zero_btn" onclick="zero()"> 0 </div>
         </div>
         
         <input name="test" type="number" id="riskamount" class="num_1" value="" min="0" >
-        <button class="arrow_minus_1 quantity_btn_m"> - </button>
-        <button class="arrow_plus_1 quantity_btn_p"> + </button>
+        <div class="arrow_minus_1 quantity_btn_m"> - </div>
+        <div class="arrow_plus_1 quantity_btn_p"> + </div>
         
     </div>
     
     <div class="SL_Pips">
         <div class="headings">SL Pips</div>
         <input type="number" id="SLpips" class="num_2" value="" min="0">
-        <button class="arrow_minus_2 quantity_btn_m"> - </button>
-        <button class="arrow_plus_2 quantity_btn_p"> + </button>
+        <div class="arrow_minus_2 quantity_btn_m"> - </div>
+        <div class="arrow_plus_2 quantity_btn_p"> + </div>
     </div>
     
     <div class="Pairs">
@@ -100,8 +100,8 @@
     <div class="SL_Pips">
         <div class="headings">Com $<span style="font-size: 14px;">/Lot</span></div>
         <input type="number" id="commitionValue" class="num_3" value="7" min="0">
-        <button class="arrow_minus_3 quantity_btn_m"> - </button>
-        <button class="arrow_plus_3 quantity_btn_p"> + </button>
+        <div class="arrow_minus_3 quantity_btn_m"> - </div>
+        <div class="arrow_plus_3 quantity_btn_p"> + </div>
     </div>
 
     <hr class="stats_hr">
@@ -121,6 +121,9 @@
 
 </div>
 </div>
+
+<div class="dark_theme">Dark</div>
+<div class="white_theme" style="display: none;">White</div>
 
 <!-- <div class="wrapper" style="position: relative;margin: 190px auto;padding: 9px;border: 2px solid #5bc0de;border-radius: 5px;"> -->
 
