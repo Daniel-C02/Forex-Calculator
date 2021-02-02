@@ -170,7 +170,7 @@ $(function() {
             darky.hide()
             whitey.show();
             body.css({
-                "background-color": '#23282bde',
+                "background": '#23282bde',
                 "color": '#e2e2e2'});
             input.css({
                 "border": '0',});}
@@ -178,7 +178,7 @@ $(function() {
             darky.show();
             whitey.hide()
             body.css({
-                "background-color": '#eee',
+                "background": '#eee',
                 "color": '#292b2c'});
             input.css({
                 "border": '1px solid #5bc0de',});
