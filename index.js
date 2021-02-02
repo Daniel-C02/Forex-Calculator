@@ -164,33 +164,23 @@ $(function() {
         var whitey = $(".white_theme");
         var body = $("body");
         var input = $("input");
-
         darky.click(dark);
         whitey.click(white);
-
         function dark() {
             darky.hide()
             whitey.show();
             body.css({
                 "background-color": '#23282bde',
-                "color": '#e2e2e2'
-            });
+                "color": '#e2e2e2'});
             input.css({
-                "border": '0',
-            });
-        }
-
+                "border": '0',});}
         function white() {
             darky.show();
             whitey.hide()
             body.css({
                 "background-color": '#eee',
-                "color": '#292b2c'
-            });
+                "color": '#292b2c'});
             input.css({
-                "border": '1px solid #5bc0de',
-            });
-        }
-
-    })();
+                "border": '1px solid #5bc0de',});
+        }})();
 });

@@ -1,10 +1,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0 .5rem;
-    background-color:#eee;
-    color: #292b2c;
-    /* background-color: #23282bde;
-    color: #e2e2e2; */
+    /* background-color:#eee;
+    color: #292b2c; */
 }
 
 @media (max-width: 500px) {
