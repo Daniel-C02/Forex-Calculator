@@ -10,11 +10,11 @@
     <title>FX Calc</title>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
-<body style="background:#eee; color: #292b2c;">
-
+<body style="background:#23282bde; color: #e2e2e2;" onload="minimise_window()">
+    
 <div id="button_wrap">
-    <div class="center" id="center" onclick="centercontent()">Center</div>
-    <div class="center" id="corner" onclick="cornercontent()" style="display: none;">Corner</div>
+    <div class="center" id="center" onclick="centercontent()" style="display: none;">Center</div>
+    <div class="center" id="corner" onclick="cornercontent()">Corner</div>
 </div>
 
 <div id="content">
@@ -35,7 +35,9 @@
     </div>
     
     <div class="SL_Pips">
-        <div class="headings">SL Pips</div>
+        <div class="headings">SL Pips
+            <div class="micro_btn"> m </div>
+        </div>
         <input type="number" id="SLpips" class="num_2" value="" min="0">
         <div class="arrow_minus_2 quantity_btn_m"> - </div>
         <div class="arrow_plus_2 quantity_btn_p"> + </div>
@@ -56,7 +58,7 @@
             </div>
             <div class="pair GJ">
                 <a onclick="funcGJ(), Calculation()">
-                    <input type="number" id="GBP_JPY" value="9.10341" style="display: none;"> GBP_JPY
+                    <input type="number" id="GBP_JPY" value="9.32671" style="display: none;"> GBP_JPY
                 </a>
             </div>
             <div class="pair XAU">
@@ -71,27 +73,32 @@
             </div>
             <div class="pair EN">
                 <a onclick="funcEN(), Calculation()">
-                    <input type="number" id="EUR_NZD" value="6.45830" style="display: none;"> EUR_NZD
+                    <input type="number" id="EUR_NZD" value="6.42110" style="display: none;"> EUR_NZD
                 </a>
             </div>
             <div class="pair GC">
                 <a onclick="funcGC(), Calculation()">
-                    <input type="number" id="GBP_CAD" value="7.52819" style="display: none;"> GBP_CAD
+                    <input type="number" id="GBP_CAD" value="7.30514" style="display: none;"> GBP_CAD
                 </a>
             </div>
             <div class="pair GN">
                 <a onclick="funcGN(), Calculation()">
-                    <input type="number" id="GBP_NZD" value="6.45830" style="display: none;"> GBP_NZD
+                    <input type="number" id="GBP_NZD" value="6.42110" style="display: none;"> GBP_NZD
                 </a>
             </div>
             <div class="pair UJ">
                 <a onclick="funcUJ(), Calculation()">
-                    <input type="number" id="USD_JPY" value="9.24351" style="display: none;"> USD_JPY
+                    <input type="number" id="USD_JPY" value="9.32671" style="display: none;"> USD_JPY
+                </a>
+            </div>
+            <div class="pair EJ">
+                <a onclick="funcEJ(), Calculation()">
+                    <input type="number" id="EUR_JPY" value="9.32671" style="display: none;"> EUR_JPY
                 </a>
             </div>
             <div class="pair UZ">
                 <a onclick="funcUZ(), Calculation()">
-                    <input type="number" id="USD_ZAR" value="0.67272" style="display: none;"> USD_ZAR
+                    <input type="number" id="USD_ZAR" value="0.57916" style="display: none;"> USD_ZAR
                 </a>
             </div>
         </div>
@@ -122,8 +129,8 @@
 </div>
 </div>
 
-<div class="dark_theme">Dark</div>
-<div class="white_theme" style="display: none;">White</div>
+<div class="dark_theme" style="display: none;">Dark</div>
+<div class="white_theme">White</div>
 
 <!-- <div class="wrapper" style="position: relative;margin: 190px auto;padding: 9px;border: 2px solid #5bc0de;border-radius: 5px;"> -->
 

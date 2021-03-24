@@ -3,7 +3,7 @@ body {
     margin: 0 .5rem;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
     .wrapper {
         margin: 2rem auto auto;
         margin-top: 4rem;
@@ -12,7 +12,7 @@ body {
         margin: 0;}}
 
 input {
-    border: 1px solid #5bc0de;
+    border: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0 0 3px 4px;
     font-size: .9em;
@@ -27,6 +27,12 @@ input:focus {
 
 .wrapper {
     width: 16rem;}
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .Heading {
     font-size: 22px;
@@ -67,7 +73,8 @@ input:focus {
 .stats_hr {
     width: 16rem;
     margin: 1rem auto .1rem 5px;
-    border: 1px solid #5bc0de;}
+    border: 1px solid #5bc0de;
+    background: #5bc0de;}
 
 .stats {
     font-size: 18px;
@@ -92,7 +99,7 @@ input:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 0;}
+    height: 160px;}
 
 @media (max-width: 650px) {
     #button_wrap {display: none;}}
@@ -169,3 +176,27 @@ button:focus {
     border-bottom: 2px solid #d9534f;
     cursor: pointer;
 }
+
+.small_window {
+    font-weight: 500;
+    font-size: 18px;
+    border-bottom: 2px solid #292b2c;
+    position: absolute;
+    right: 0;
+    transform: translate(-50%, -50%);
+    top: 16px;}
+
+.small_window:hover {
+    border-bottom: 2px solid #d9534f;
+    cursor: pointer;}
+
+.micro_btn {
+    font-size: 18px;
+    padding: 0 5px;
+    position: absolute;
+    right: 0;
+    transform: translate(0%, 10%);
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: sans-serif;}

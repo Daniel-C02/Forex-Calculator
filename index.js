@@ -1,73 +1,74 @@
 const list = [];
 
+function pairColor() {
+    var lastListVal = list.slice(-2)[0] 
+    if (curTheme == "White") {document.getElementsByClassName("pair")[lastListVal].style.color = "rgb(0, 0, 0)";
+    } else {document.getElementsByClassName("pair")[lastListVal].style.color = "rgb(226, 226, 226)";}};
+
 function funcEU() {
     list.push(0);
-    var lastListVal = list.slice(-2)[0] 
+    pairColor();
     pipvalue = document.getElementById("EUR_USD").value;
-    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
     document.getElementsByClassName("EU")[0].style.color = "#d9534f";};
 
 function funcGU() {
     list.push(1);
-    var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("GBP_USD").value;
-    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    pairColor();
     document.getElementsByClassName("GU")[0].style.color = "#d9534f";};
 
 function funcGJ() {
     list.push(2);
-    var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("GBP_JPY").value; 
-    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    pairColor();
     document.getElementsByClassName("GJ")[0].style.color = "#d9534f";};
 
 function funcXAU() {
     list.push(3);
-    var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("XAU_USD").value; 
-    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    pairColor();
     document.getElementsByClassName("XAU")[0].style.color = "#d9534f";};
 
 function funcNU() {
     list.push(4);
-    var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("NZD_USD").value; 
-    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    pairColor();
     document.getElementsByClassName("NU")[0].style.color = "#d9534f";};
 
 function funcEN() {
     list.push(5);
-    var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("EUR_NZD").value; 
-    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    pairColor();
     document.getElementsByClassName("EN")[0].style.color = "#d9534f";};
 
 function funcGC() {
     list.push(6);
-    var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("GBP_CAD").value; 
-    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    pairColor();
     document.getElementsByClassName("GC")[0].style.color = "#d9534f";};
 
 function funcGN() {
     list.push(7);
-    var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("GBP_NZD").value; 
-    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    pairColor();
     document.getElementsByClassName("GN")[0].style.color = "#d9534f";};
 
 function funcUJ() {
     list.push(8);
-    var lastListVal = list.slice(-2)[0] 
     pipvalue = document.getElementById("USD_JPY").value; 
-    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    pairColor();
     document.getElementsByClassName("UJ")[0].style.color = "#d9534f";};
 
-function funcUZ() {
+function funcEJ() {
     list.push(9);
-    var lastListVal = list.slice(-2)[0] 
+    pipvalue = document.getElementById("EUR_JPY").value; 
+    pairColor();
+    document.getElementsByClassName("EJ")[0].style.color = "#d9534f";};
+
+function funcUZ() {
+    list.push(10);
     pipvalue = document.getElementById("USD_ZAR").value; 
-    document.getElementsByClassName("pair")[lastListVal].style.color = "#000";
+    pairColor();
     document.getElementsByClassName("UZ")[0].style.color = "#d9534f";};
 
 function Calculation() {
@@ -130,6 +131,34 @@ $(function() {
             if ($Num.val() > skipNum) {$Num.val(+$Num.val() - skipNum);}}
         function Plus() {$Num.val(+$Num.val() + skipNum);}})();
 
+    var microNum = 1;
+    var decimal = 0;
+    (function micro() {
+        $(".micro_btn").click(function() {microo(),decimall(),microColor()});
+        function microo() {
+            if (microNum == 1) {
+                microNum = 0.1;
+            } else {
+                microNum = 1;}}
+        function decimall() {
+            if (decimal == 0) {
+                decimal = 1;
+            } else {
+                decimal = 0;}}
+        function microColor() {
+            var black = "rgb(41, 43, 44)";
+            var white = "rgb(226, 226, 226)";
+            var red = "rgb(217, 83, 79)";
+            var x = $(".micro_btn").css("color");
+            if (x == black || x == white) {
+                $(".micro_btn").css("color", red);
+            } else if ($(".Heading").css("color") == black) {
+                $(".micro_btn").css("color", black);
+            } else {
+                $(".micro_btn").css("color", white);
+            }}
+    })();
+
     (function Products2() {
         var $ArrowMinus = $(".arrow_minus_2");
         var $ArrowPlus = $(".arrow_plus_2");
@@ -137,8 +166,8 @@ $(function() {
         $ArrowMinus.click(Minus);
         $ArrowPlus.click(Plus);
         function Minus() {
-            if ($Num.val() > 1) {$Num.val(+$Num.val() - 1);}}
-        function Plus() {$Num.val(+$Num.val() + 1);}})();
+            if ($Num.val() > microNum) {$Num.val((+$Num.val() - microNum).toFixed(decimal));}}
+        function Plus() {$Num.val((+$Num.val() + microNum).toFixed(decimal));}})();
 
     (function Products3() {
         var $ArrowMinus = $(".arrow_minus_3");
@@ -158,6 +187,8 @@ function zero() {
         document.getElementById("riskamount").value = x;
     } else {document.getElementById("riskamount").value = 1;}};
 
+var curTheme = "White";
+
 $(function() {
     (function theme() {
         var darky = $(".dark_theme");
@@ -166,21 +197,27 @@ $(function() {
         var input = $("input");
         darky.click(dark);
         whitey.click(white);
+        var black = "rgb(41, 43, 44)";
+        var white = "rgb(242, 243, 244)";
         function dark() {
-            darky.hide()
+            curTheme = "Dark";
+            darky.hide();
             whitey.show();
+            if ($(".micro_btn").css("color") == black) {
+                $(".micro_btn").css("color", white);} 
             body.css({
-                "background": '#23282bde',
-                "color": '#e2e2e2'});
+                "background": '#23282bde',"color": '#e2e2e2'});
             input.css({
                 "border": '0',});}
         function white() {
+            curTheme = "White";
             darky.show();
-            whitey.hide()
+            whitey.hide();
+            if ($(".micro_btn").css("color") == white) {
+                $(".micro_btn").css("color", black);} 
             body.css({
-                "background": '#eee',
-                "color": '#292b2c'});
+                "background": '#eee',"color": '#292b2c'});
             input.css({
-                "border": '1px solid #5bc0de',});
-        }})();
+                "border": '1px solid #5bc0de',});}
+    })();
 });
