@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <title>FX Calc</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body onload="cornercontent()">
+    
+    <div id="button_wrap">
+        <div class="center" id="center" onclick="centercontent()" style="display: none;">Center</div>
+        <div class="center" id="corner" onclick="cornercontent()">Corner</div>
+    </div>
+    
+    <div id="content">
+    <div class="wrapper">
+    
+        <div class="Heading">Forex Calculator</div>
+    
+        <div class="R_Amount">
+            <div class="headings">
+                Risk $
+                <div class="zero_btn" onclick="zero()"> 0 </div>
+            </div>
+            
+            <input name="test" type="number" id="riskamount" class="num_1" value="" min="0" >
+            <div class="arrow_minus_1 quantity_btn_m"> - </div>
+            <div class="arrow_plus_1 quantity_btn_p"> + </div>
+            
+        </div>
+        
+        <div class="SL_Pips">
+            <div class="headings">SL Pips
+                <div class="micro_btn"> m </div>
+            </div>
+            <input type="number" id="SLpips" class="num_2" value="" min="0">
+            <div class="arrow_minus_2 quantity_btn_m"> - </div>
+            <div class="arrow_plus_2 quantity_btn_p"> + </div>
+        </div>
+        
+        <div class="Pairs">
+            <div class="headings Pairhead">Pairs</div>
+            <div class="pair_list">
+                <div class="pair EUR_USD">
+                    <a onclick="Color('EUR_USD', 0), Calculation()">
+                        <input type="number" id="EUR_USD" style="display: none;"> EUR_USD 
+                    </a>
+                </div>
+                <div class="pair GBP_USD">
+                    <a onclick="Color('GBP_USD', 1), Calculation()">
+                        <input type="number" id="GBP_USD" style="display: none;"> GBP_USD 
+                    </a>
+                </div>
+                <div class="pair GBP_JPY">
+                    <a onclick="Color('GBP_JPY', 2), Calculation()">
+                        <input type="number" id="GBP_JPY" style="display: none;"> GBP_JPY
+                    </a>
+                </div>
+                <div class="pair XAU_USD">
+                    <a onclick="Color('XAU_USD', 3), Calculation()">
+                        <input type="number" id="XAU_USD" style="display: none;"> XAU_USD 
+                    </a>
+                </div>
+                <div class="pair NZD_USD">
+                    <a onclick="Color('NZD_USD', 4), Calculation()">
+                        <input type="number" id="NZD_USD" style="display: none;"> NZD_USD 
+                    </a>
+                </div>
+                <div class="pair EUR_NZD">
+                    <a onclick="Color('EUR_NZD', 5), Calculation()">
+                        <input type="number" id="EUR_NZD" style="display: none;"> EUR_NZD
+                    </a>
+                </div>
+                <div class="pair GBP_CAD">
+                    <a onclick="Color('GBP_CAD', 6), Calculation()">
+                        <input type="number" id="GBP_CAD" style="display: none;"> GBP_CAD
+                    </a>
+                </div>
+                <div class="pair GBP_NZD">
+                    <a onclick="Color('GBP_NZD', 7), Calculation()">
+                        <input type="number" id="GBP_NZD" style="display: none;"> GBP_NZD
+                    </a>
+                </div>
+                <div class="pair USD_JPY">
+                    <a onclick="Color('USD_JPY', 8), Calculation()">
+                        <input type="number" id="USD_JPY" style="display: none;"> USD_JPY
+                    </a>
+                </div>
+                <div class="pair EUR_JPY">
+                    <a onclick="Color('EUR_JPY', 9), Calculation()">
+                        <input type="number" id="EUR_JPY" style="display: none;"> EUR_JPY
+                    </a>
+                </div>
+                <div class="pair USD_CAD">
+                    <a onclick="Color('USD_CAD', 10), Calculation()">
+                        <input type="number" id="USD_CAD" style="display: none;"> USD_CAD
+                    </a>
+                </div>
+                <div class="pair USD_ZAR">
+                    <a onclick="Color('USD_ZAR', 11), Calculation()">
+                        <input type="number" id="USD_ZAR" style="display: none;"> USD_ZAR
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="SL_Pips">
+            <div class="headings">Com $<span style="font-size: 14px;">/Lot</span></div>
+            <input type="number" id="commitionValue" class="num_3" value="7" min="0">
+            <div class="arrow_minus_3 quantity_btn_m"> - </div>
+            <div class="arrow_plus_3 quantity_btn_p"> + </div>
+        </div>
+    
+        <hr class="stats_hr">
+    
+        <div class="stats">
+            <div>
+                <div class="stat_head">Commition</div>
+                <div class="stat_head">Total Risk</div>
+                <div class="stat_head">Pos Size</div>
+            </div>
+            <div>
+                <div class="stat_answ" id="com"></div>
+                <div class="stat_answ" id="risk"></div>
+                <div class="stat_answ" id="size"></div>
+            </div>
+        </div>
+    
+    </div>
+    </div>
+
+<script src="jquery-3.5.1.slim.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
