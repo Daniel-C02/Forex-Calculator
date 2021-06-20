@@ -1,12 +1,12 @@
-const list = [];
 var intPipValue = 0;
+$('#commitionValue').val(3);
 
 let arrPipValues = [
     ['EUR_USD', 10], //const
     ['GBP_USD', 10], //const
-    ['GBP_JPY', 9.32671], // EJ UJ
+    ['GBP_JPY', 9.32671], // EUR_JPY USD_JPY
     ['XAU_USD', 1],
-    ['USD_CAD', 7.30514], // GC
+    ['USD_CAD', 7.30514], // GBP_CAD
     ['GBP_CAD', 7.30514],
     ['EUR_NZD', 6.42110],
     ['EUR_JPY', 9.32671], 
@@ -17,43 +17,40 @@ let arrPipValues = [
 ];
 
 function Color(strPair, intPair) {
-    var elements = document.getElementsByClassName('pair'); // get all elements
-	for(var i = 0; i < elements.length; i++){
-		elements[i].style.color = "rgb(226, 226, 226)";
-	}
-    document.getElementsByClassName(strPair)[0].style.color = "#d9534f";
+    $('.pair').css('color','rgb(226, 226, 226)');
+    $('.'+strPair).css('color','#d9534f');
     intPipValue = arrPipValues[intPair][1];
 };
 
 //Pips at risk * pip value(per lot) * lots traded = amount at risk
 //Pips at risk * pip value(per lot) / amount at risk = 1 / lots traded
 function Calculation() {
-    var y = document.getElementById("SLpips").value;
-    var x = document.getElementById("riskamount").value;
-    var z = y*intPipValue/x;
-    var answer = Math.pow(z, -1).toFixed(3);
+    var slPips = $("#SLpips").val();
+    var riskAmt = $("#riskamount").val();
+    var posSize = slPips*intPipValue/riskAmt;
+    var answer = Math.pow(posSize, -1).toFixed(3);
     if (answer.slice(-1) == 0) {
         if (answer.slice(-2) == 0) {
             if (answer.slice(-3) == 0) {
-                var answer = Math.pow(z, -1).toFixed(0);
-            } else { var answer = Math.pow(z, -1).toFixed(1); }
-        } else { var answer = Math.pow(z, -1).toFixed(2); }
-    } else { var answer = Math.pow(z, -1).toFixed(3); }
+                var answer = Math.pow(posSize, -1).toFixed(0);
+            } else { var answer = Math.pow(posSize, -1).toFixed(1); }
+        } else { var answer = Math.pow(posSize, -1).toFixed(2); }
+    } else { var answer = Math.pow(posSize, -1).toFixed(3); }
     if (answer>0.5 && Number.isInteger(answer*100) == false) {
-        var answer = Math.pow(z, -1).toFixed(2);}
+        var answer = Math.pow(posSize, -1).toFixed(2);}
     var commition = (answer*document.getElementById("commitionValue").value).toFixed(2);
-    var risk = (Number(x) + Number(commition)).toFixed(2);
-    document.getElementById("com").innerHTML = "$ " + commition;
-    document.getElementById("risk").innerHTML = "$ " + risk;
-    document.getElementById("size").innerHTML = answer;
+    var risk = (Number(riskAmt) + Number(commition)).toFixed(2);
+    $("#com").html("$ "+commition);
+    $("#risk").html("$ "+risk);
+    $("#size").html(answer);
 };
 
 function centercontent() {
-    document.getElementById("content").setAttribute(
-        "style", "display: flex; justify-content: center; align-items: center;");
+    $("#content").css({"display": "flex", "justify-content": "center", "align-items": "center"});
     document.getElementById("button_wrap").style.height = "8rem";
     document.getElementById("corner").style.display = "block";
     document.getElementById("center").style.display = "none";
+    document.getElementById("popup").style.display = "block";
 };
 
 function cornercontent() {
@@ -61,6 +58,7 @@ function cornercontent() {
     document.getElementById("button_wrap").style.height = "0";
     document.getElementById("center").style.display = "block";
     document.getElementById("corner").style.display = "none";
+    document.getElementById("popup").style.display = "none";
 };
 
 $(function() {
@@ -69,7 +67,7 @@ $(function() {
         $(".arrow_minus_1").click(risky);
         $(".arrow_plus_1").click(risky);
         function risky() {
-            var riskyy = document.getElementById("riskamount").value;
+            var riskyy = $("#riskamount").val();
             if (riskyy < 100) {skipNum = 1;
             } else if (riskyy < 999) {skipNum = 10;
             } else if (riskyy < 9999) {skipNum = 100;
@@ -144,18 +142,18 @@ $(function() {
 });
 
 function zero() {
-    var amt = (document.getElementById("riskamount").value).trim();
+    var amt = ($("#riskamount").val()).trim();
     if (amt) {
         var x = Number((amt).toString() + 0);
-        document.getElementById("riskamount").value = x;
-    } else {document.getElementById("riskamount").value = 1;}
+        $("#riskamount").val(x);
+    } else {$("#riskamount").val(1);}
 };
 
 function NewWindow() {
     window.open(
         'window.html', 
         'newwindow', 
-        'width=300,height=500'
+        'width=300,height=480'
     ); 
     return false;
 };

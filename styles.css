@@ -8,7 +8,7 @@ body {
 input {
     border: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 0 0 .15rem .3rem;
+    padding: 0 0 .12rem .3rem;
     font-size: 1.08rem;
     border-radius: 5px;
     width: 5.3rem;
@@ -32,7 +32,7 @@ input:focus {
     font-size: 22px;
     text-align: center;
     font-weight: 500;
-    margin: 0 auto .7rem;
+    margin: 0 auto .9rem;
     cursor: default;}
 
 .headings {
@@ -84,7 +84,23 @@ input:focus {
 .stat_answ {
     padding: 1px 0 1px 2px;}
 
+/******** popup button ***********/
+@media (max-width: 650px) {
+    #popup {display: none;}}
+
+.popup_btn {
+    font-weight: 500;
+    font-size: 18px;
+    border-bottom: 2px solid #292b2c;
+    position: absolute;
+    left: 2.3rem;
+    top: 16px;
+    transform: translate(-50%, -50%);}
     
+.popup_btn:hover {
+    border-bottom: 2px solid #d9534f;
+    cursor: pointer;}
+
 /******** center button ***********/
 #button_wrap {
     display: flex;
