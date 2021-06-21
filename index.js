@@ -90,32 +90,21 @@ $(function() {
         function Plus() {$Num.val(+$Num.val() + skipNum);}
     })();
 
-    var microNum = 1;
-    var decimal = 0;
+    var decimal = false;
     (function micro() {
-        $(".micro_btn").click(function() {microo(),decimall(),microColor()});
-        function microo() {
-            if (microNum == 1) {
-                microNum = 0.1;
-            } else {
-                microNum = 1;}}
-        function decimall() {
-            if (decimal == 0) {
-                decimal = 1;
-            } else {
-                decimal = 0;}}
+        $(".micro_btn").click(function() {blnDecimal(),microColor(),plusFive()});
+        function blnDecimal() {
+            decimal ? decimal = false : decimal = true
+        }
         function microColor() {
-            var black = "rgb(41, 43, 44)";
             var white = "rgb(226, 226, 226)";
             var red = "rgb(217, 83, 79)";
-            var x = $(".micro_btn").css("color");
-            if (x == black || x == white) {
-                $(".micro_btn").css("color", red);
-            } else if ($(".Heading").css("color") == black) {
-                $(".micro_btn").css("color", black);
-            } else {
-                $(".micro_btn").css("color", white);
-            }}
+            decimal ? $(".micro_btn").css("color", red) : $(".micro_btn").css("color", white)
+        }
+        function plusFive() {
+            var $Num = $(".num_2");
+            decimal ?  $Num.val((+$Num.val() + 0.5).toFixed(1)) : $Num.val((+$Num.val()).toFixed(0))
+        }
     })();
 
     (function Products2() {
@@ -125,8 +114,11 @@ $(function() {
         $ArrowMinus.click(Minus);
         $ArrowPlus.click(Plus);
         function Minus() {
-            if ($Num.val() > microNum) {$Num.val((+$Num.val() - microNum).toFixed(decimal));}}
-        function Plus() {$Num.val((+$Num.val() + microNum).toFixed(decimal));}
+            $Num.val((+$Num.val() - (decimal ? 0.1 : 1)).toFixed(decimal ? 1 : 0));
+        }
+        function Plus() {
+            $Num.val((+$Num.val() + (decimal ? 0.1 : 1)).toFixed(decimal ? 1 : 0));
+        }
     })();
 
     (function Products3() {
@@ -153,7 +145,7 @@ function NewWindow() {
     window.open(
         'window.html', 
         'newwindow', 
-        'width=300,height=480'
+        'width=255,height=400'
     ); 
     return false;
 };
